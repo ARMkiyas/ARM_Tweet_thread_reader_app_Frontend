@@ -1,0 +1,24 @@
+@import 'antd/dist/antd.css';
+
+.ant-input{
+    border-radius: 20px 20px;
+}
+.ant-input-search > .ant-input-group > .ant-input-group-addon:last-child .ant-input-search-button{
+    border-radius:  0 20px 20px 0;
+}
+
+.ant-input-search > .ant-input-group > .ant-input-group-addon:last-child .ant-input-search-button:hover{
+    cursor: pointer;
+}
+
+.root{
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+
+}
+
+.search_bar{
+    width: 50%;
+
+}

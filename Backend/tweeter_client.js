@@ -13,7 +13,7 @@ const twaccess= new TwitterApi({
 
 const oClient=new TwitterApi(process.env.BEARER_TOKEN)
 
-const roClinet=oClient.readOnly;
+const roClinet=twaccess.readOnly;
 
 module.exports = roClinet;
 
