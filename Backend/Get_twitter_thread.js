@@ -17,7 +17,7 @@ const get_con = async (id) => {
       data: [],
       includes: [],
     };
-    console.log("started");
+
     const tweet_info = await await get_tweet_info(id);
 
     await roClinet.v2.search(
@@ -55,7 +55,7 @@ const get_con = async (id) => {
     // get.data.includes.media.reverse()
     final_data.data.reverse();
     final_data.includes.reverse();
-    console.log(final_data)
+
     return final_data;
   
   } catch (e) {
