@@ -19,11 +19,11 @@ const thread_screen = (props) => {
                 })
               : {};
 
-            console.log(media_data);
+           
             return (
               <div key={tweets.id}>
                 <p>{tweets.text}</p>
-                {console.log()}
+           
                 {Object.keys(media_data).length >= 0 &&
                 media_data.type !== "photo" ? (
                   []
@@ -41,12 +41,10 @@ const thread_screen = (props) => {
     );
   };
 
-  useEffect(()=>{
-    console.log("dgs")
-  },[])
 
 
-  console.log(props.getData);
+
+ 
   return (
       <div>
         {

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Input, message } from "antd";
 import { connect } from "react-redux";
 import { get_data } from "../actions/search_action";
-import Model from "./model";
+
 
 const { Search } = Input;
 
@@ -33,7 +33,7 @@ const seacrh_bar = (props) => {
   // onserach
   const fetch_tweet = () => {
     const valid_url = url(search_value);
-    console.log(valid_url);
+    
     valid_url[0]
       ? props.fetch_data(valid_url[1], toggle_loading)
       : model_toggle(true);
