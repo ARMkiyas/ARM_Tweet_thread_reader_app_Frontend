@@ -83,6 +83,10 @@ p{
         width: 100%;
     
     }
+    .screen_card{
+        width: 100%;
+         font-size: 1.3rem;
+     }
 }
 
 
@@ -91,4 +95,8 @@ p{
         width: 100%;
     
     }
+    .screen_card{
+            width: 100%;
+         font-size: 1.3rem;
+     }
  }
