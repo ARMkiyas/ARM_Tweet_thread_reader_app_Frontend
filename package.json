@@ -19,5 +19,6 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.7",
     "vite": "^2.8.0"
-  }
+  },
+  "proxy":"https://arm-thread-backend.herokuapp.com"
 }

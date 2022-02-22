@@ -8,7 +8,7 @@ export default defineConfig({
       "/api": {
         target: "https://arm-thread-backend.herokuapp.com",
         changeOrigin: true,
-        secure: false,
+        secure: true,
         ws: true,
       },
     },

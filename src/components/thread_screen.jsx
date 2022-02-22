@@ -9,10 +9,10 @@ const thread_screen = (props) => {
     return (
       <div className="thread_screen">
         <Card className="screen_card">
-          {props.getData.data.map((tweets) => {
+          {props?.getData?.data?.map((tweets) => {
             let media_data = {};
-            media_data = tweets.attachments
-              ? props.getData.includes.find((media) => {
+            media_data = tweets?.attachments
+              ? props?.getData?.includes?.find((media) => {
                   if (media?.media_key == tweets?.attachments?.media_keys[0]) {
                     return media;
                   }
