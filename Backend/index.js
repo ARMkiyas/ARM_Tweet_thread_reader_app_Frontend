@@ -4,10 +4,13 @@ const cors = require("cors");
 
 app = express();
 app.use(express.json());
-
+app.use(cors({
+  origin:"*",
+  methods:"GET,POST"
+}))
 
 const con=require("./Get_twitter_thread")
-console.log(con);
+
 
 const port = process.env.PORT || 3001;
 

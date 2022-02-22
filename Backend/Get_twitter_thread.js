@@ -19,8 +19,8 @@ const get_con = async (id) => {
     };
     console.log("started");
     const tweet_info = await await get_tweet_info(id);
-    console.log(tweet_info);
-    const get = await roClinet.v2.search(
+
+    await roClinet.v2.search(
       `conversation_id:${tweet_info.data[0].conversation_id} from:${tweet_info.data[0].author_id}`,
       {
         max_results: 100,
@@ -28,15 +28,25 @@ const get_con = async (id) => {
         expansions: "attachments.media_keys",
         "media.fields": "url",
       }
-    );
+    ).then(({data})=>{
+      final_data.data = data?.data?.filter((obj) => {
+        return obj.in_reply_to_user_id == obj.author_id;
+      });
+      data?.includes?.media?.map(obj =>{
+        final_data.includes.push(obj)
+      })
+    })
 
-    final_data.data = get.data.data.filter((obj) => {
-      return obj.in_reply_to_user_id == obj.author_id;
-    });
-    final_data.includes.push(get.data.includes?.media);
 
-    final_data.data?.push(tweet_info.data[0]);
-    final_data.includes.push(tweet_info.includes?.media);
+ 
+
+    
+
+    final_data.data === undefined ? final_data.data=(tweet_info.data) :   final_data.data?.push(tweet_info.data[0]);
+  
+    
+    tweet_info?.includes?.media?.[0] ? final_data?.includes?.push(tweet_info.includes?.media?.[0]) : [];
+    
 
     //  get.data?.data?.push(tweet_info.data.includes.media);
     //  get.data?.includes?.media.push()
@@ -45,9 +55,11 @@ const get_con = async (id) => {
     // get.data.includes.media.reverse()
     final_data.data.reverse();
     final_data.includes.reverse();
+    console.log(final_data)
     return final_data;
+  
   } catch (e) {
-    console.log(e);
+    return tweet_info?.[0]
   }
 };
 

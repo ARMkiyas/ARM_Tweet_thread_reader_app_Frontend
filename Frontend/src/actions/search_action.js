@@ -1,9 +1,12 @@
 import axios from "axios"
 
 
-export const get_data=(id)=>{
-    return (dispatch)=>{
-        axios.get(`http://localhost:8080/api/getdata/${id}`).then((data)=>{
+export const get_data=(id , loading)=>{
+    loading(true)
+  return (dispatch)=>{
+     axios.get(`/api/getdata/${id}`).then(({data})=>{
+            console.log(data);
+            loading(false)
             return dispatch({type:"FETCH_THREAD", payload:data})
         })
     }

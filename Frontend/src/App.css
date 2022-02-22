@@ -11,14 +11,67 @@
     cursor: pointer;
 }
 
-.root{
-    display: flex;
-    justify-content: center;
-    padding: 2rem;
 
+.root{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    /* height: 100vh; */
+    width: 100%;
+    /* transition: height 1s cubic-bezier(0.68, -0.55, 0.27, 1.55); */
+}
+
+.active{
+    height:30vh;
 }
 
 .search_bar{
     width: 50%;
 
+}
+
+.thread_screen{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.screen_card{
+   width: 80%;
+    font-size: 1.5rem;
+}
+
+.image{
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+img{
+    padding:0;
+    margin:0;
+    width: 80%;
+    
+}
+
+p{
+    margin: 0.5rem;;
+    padding:1.5;
+}
+
+
+.error{
+
+    color:red;
+    text-align:center;
+    font-weight:bold;
+    font-size:smaller;
+}
+.note{
+    color: #969696;
+    text-align:center;
+    font-size:smaller;
 }

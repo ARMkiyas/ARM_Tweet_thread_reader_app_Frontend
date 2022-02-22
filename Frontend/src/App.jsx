@@ -2,6 +2,11 @@ import { useState, Component } from "react";
 import "./App.css";
 import axios from "axios";
 import Seacrh_bar from "./components/search_bar";
+import Thread_screen from "./components/thread_screen";
+import {Divider} from "antd";
+import {connect} from "react-redux";
+
+
 
 class App extends Component {
 
@@ -14,16 +19,32 @@ class App extends Component {
 
     
     onsearch_bar=(e)=>{
+     
       this.setState({search_value:e.target.value})
     }
 
+
+
   render() {
     return (
-      <div className="root">
-        <Seacrh_bar></Seacrh_bar>
+      <div className={Object.keys(this.props.getData).length == 0 ? "root" : " root  "}>
+        <Seacrh_bar/>
+
+        {Object.keys(this.props.getData).length == 0 ? []:<div><Divider/> <Thread_screen/></div>}
+      
+      
+
+   
+        
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps=(state)=>{
+  return {
+      getData:state
+  }
+}
+
+export default  connect(mapStateToProps)(App);
