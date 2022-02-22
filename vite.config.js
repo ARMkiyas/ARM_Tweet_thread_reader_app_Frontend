@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://localhost:8080",
+        target: "https://arm-thread-backend.herokuapp.com",
         changeOrigin: true,
         secure: false,
         ws: true,
