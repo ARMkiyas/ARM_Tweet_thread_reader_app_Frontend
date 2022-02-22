@@ -6,7 +6,7 @@ const reducer=(state=initState, action)=>{
         return action.payload
     }
 
-    console.log(state)
+
     return state;
 }
 
