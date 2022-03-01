@@ -37,6 +37,7 @@ class App extends Component {
           </div>
         )}
         <div>
+        <Divider />
           {Object.keys(this.props.getData).length == 0 ? (
             []
           ) : (
