@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Card } from "antd";
 import { connect } from "react-redux";
-
+import { pdf } from "@react-pdf/renderer";
 
 
 const thread_screen = (props) => {
@@ -10,6 +10,7 @@ const thread_screen = (props) => {
       <div className="thread_screen">
         <Card className="screen_card">
           {props?.getData?.data?.map((tweets) => {
+      
             let media_data = {};
             media_data = tweets?.attachments
               ? props?.getData?.includes?.find((media) => {
@@ -18,8 +19,6 @@ const thread_screen = (props) => {
                   }
                 })
               : {};
-
-           
             return (
               <div key={tweets.id}>
                 <p>{tweets.text}</p>
@@ -36,6 +35,7 @@ const thread_screen = (props) => {
               </div>
             );
           })}
+
         </Card>
       </div>
     );
