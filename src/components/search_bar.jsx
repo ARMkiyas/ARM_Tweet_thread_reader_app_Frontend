@@ -31,7 +31,7 @@ const seacrh_bar = (props) => {
   };
 
   // onserach
-  const fetch_tweet = () => {
+  const fetch_tweet =  () => {
     const valid_url = url(search_value);
     
     valid_url[0]

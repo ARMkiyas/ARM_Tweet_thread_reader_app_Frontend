@@ -6,6 +6,7 @@ export const get_data=(id , loading)=>{
   return (dispatch)=>{
      axios.get(`https://arm-thread-backend.herokuapp.com/api/getdata/${id}`).then(({data})=>{
             loading(false)
+            console.log(data);
             return dispatch({type:"FETCH_THREAD", payload:data})
         })
     }

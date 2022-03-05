@@ -1,6 +1,6 @@
 import React from "react";
 import pdf from "@react-pdf/renderer";
-import { connect } from "react-redux";
+
 
 const { Page, Text, Image, Document, View, Svg, Line, StyleSheet, Font } = pdf;
 let date = new Date();
@@ -112,13 +112,14 @@ const PDFFile = (props) => {
     },
   });
 
-
+// diviting the data into 2 parts
   const data = props?.getData?.data;
   const middleindex = Math.ceil(data?.length / 2);
   const col1 = data.splice(0, middleindex);
   const col2 = data.splice(-middleindex);
   
 
+//render the media part into pdf
   const media=(media_data)=>{
     if( Object.keys(media_data).length >= 0 &&
     media_data.type !== "photo"){
@@ -214,36 +215,10 @@ const PDFFile = (props) => {
               );
             })}
           </View>
-          {/* non column */}
-          {/* {col1?.map((tweets) => {
-              let media_data = {};
-              media_data = tweets?.attachments
-                ? props?.getData?.includes?.find((media) => {
-                    if (
-                      media?.media_key == tweets?.attachments?.media_keys[0]
-                    ) {
-                      return media;
-                    }
-                  })
-                : {};
-              return (
-                <div key={tweets.id}>
-                  <Text style={styles.context}>
-                    {tweets.text.replace(/\n/g, "")}{" "}
-                  </Text>
-                  <Text style={styles.text}>
-                    {Object.keys(media_data).length >= 0 &&
-                    media_data.type !== "photo" ? (
-                      ""
-                    ) : (
-                      <Image style={styles.image} src={media_data?.url} />
-                    )}
-                  </Text>
-                </div>
-              );
-            })} */}
+     
+         
         </View>
-
+     {/* non column */}
         {/* <div>
           {props?.getData?.data?.map((tweets) => {
             let media_data = {};

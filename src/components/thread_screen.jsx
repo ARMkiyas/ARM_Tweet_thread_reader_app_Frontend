@@ -1,17 +1,16 @@
-import { useEffect } from "react";
+
 import { Card } from "antd";
-import { connect } from "react-redux";
-import { pdf } from "@react-pdf/renderer";
+
 
 
 const thread_screen = (props) => {
-
+console.log(props)
   const screen = () => {
     return (
       <div className="thread_screen">
         <Card className="screen_card">
           {props?.getData?.data?.map((tweets) => {
-      
+              console.log(tweets);
             let media_data = {};
             media_data = tweets?.attachments
               ? props?.getData?.includes?.find((media) => {
@@ -56,10 +55,6 @@ const thread_screen = (props) => {
   )
 };
 
-const mapStateToProps = (state) => {
-  return {
-    getData: state,
-  };
-};
 
-export default connect(mapStateToProps)(thread_screen);
+
+export default thread_screen;
