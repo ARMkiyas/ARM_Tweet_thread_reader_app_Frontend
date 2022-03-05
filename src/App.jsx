@@ -21,6 +21,7 @@ class App extends Component {
   };
 
   render() {
+    console.log(this.props.getData)
     return (
       <div
         className={
@@ -44,9 +45,13 @@ class App extends Component {
             <div >
               <PDFDownloadLink
                 document={<Pdf_gen getData={this.props.getData} />}
-                fileName="test"
+                fileName={this.props.getData.author_info.username}
               >
-               <Button className="pdf_gen_btn" type="primary">Download as PDF</Button>
+                {({ blob, url, loading, error }) =>
+        loading ? <Button className="pdf_gen_btn" type="primary">Genarating PDF......</Button> : <Button className="pdf_gen_btn" type="primary">Download as PDF</Button>
+      }
+            
+               
               </PDFDownloadLink>
             </div>
           )}

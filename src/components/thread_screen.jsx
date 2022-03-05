@@ -5,6 +5,7 @@ import { pdf } from "@react-pdf/renderer";
 
 
 const thread_screen = (props) => {
+
   const screen = () => {
     return (
       <div className="thread_screen">
