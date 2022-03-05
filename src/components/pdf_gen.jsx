@@ -2,7 +2,7 @@ import React from "react";
 import pdf from "@react-pdf/renderer";
 
 
-const { Page, Text, Image, Document, View, Svg, Line, StyleSheet, Font } = pdf;
+const { Page, Text, Image, Document, View, Svg, Line, Link,StyleSheet, Font } = pdf;
 let date = new Date();
 
 const PDFFile = (props) => {
@@ -55,7 +55,16 @@ const PDFFile = (props) => {
       position: "absolute",
       fontSize: 12,
       bottom: 30,
-      left: 0,
+    
+      right: 10,
+      textAlign: "center",
+      color: "grey",
+    },
+      bottom_text: {
+      position: "absolute",
+      fontSize: 12,
+      bottom: 30,
+      left:0,
       right: 0,
       textAlign: "center",
       color: "grey",
@@ -84,6 +93,10 @@ const PDFFile = (props) => {
     author: {
       fontFamily: 'Oswald',
       fontSize: 14,
+      marginTop: 4,
+    },pub_date:{
+      fontFamily: 'Oswald',
+      fontSize: 12,
       marginTop: 4,
     },
     head: {
@@ -132,7 +145,7 @@ const PDFFile = (props) => {
 
   return (
     <Document>
-      <Page style={styles.body}>
+      <Page style={styles.body} >
         <View fixed>
           <View style={styles.head}>
             <Image
@@ -144,10 +157,10 @@ const PDFFile = (props) => {
             />
             <View style={styles.author_view}>
               <Text style={styles.author}>
-                Thread Author : {props.getData.author_info.name}
+                Thread Author : {props.getData.author_info.name}(<Link src={"http://twitter.com/"+props.getData.author_info.username}>@{props.getData.author_info.username}</Link>)
               </Text>
 
-              <Text style={styles.author}>
+              <Text style={styles.pub_date}>
                 Publication Data : {props.getData.created_at.split("T")[0]}
               </Text>
             </View>
@@ -251,10 +264,28 @@ const PDFFile = (props) => {
             }
           />
         </div> */}
+        <View>
+          {
+             props?.getData?.includes?.map((media)=>{
+               if(media.type == "photo"){
+                return( <Image src={media.url} style={{width:"100%",height:"600px"}}/>)
+               }
+             
+             })
+          }
+        </View>
+     
+        <Text
+          style={styles.bottom_text}
+          render={({ pageNumber, totalPages }) =>
+            `bobbin.fyi`
+          }
+          fixed
+        />
         <Text
           style={styles.pageNumber}
           render={({ pageNumber, totalPages }) =>
-            `${pageNumber} / ${totalPages}`
+            `Page ${pageNumber} / ${totalPages}`
           }
           fixed
         />
