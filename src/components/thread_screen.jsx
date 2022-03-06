@@ -4,7 +4,6 @@ import { Card } from "antd";
 
 
 const thread_screen = (props) => {
-console.log(props)
   const screen = () => {
     return (
       <div className="thread_screen">
