@@ -6,7 +6,8 @@ const { Page, Text, Image, Document, View, Svg, Line, Link,StyleSheet, Font } = 
 let date = new Date();
 
 const PDFFile = (props) => {
-  console.log(props);
+  
+
   Font.register({
     family: "Roboto",
     src: "https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-light-webfont.ttf",

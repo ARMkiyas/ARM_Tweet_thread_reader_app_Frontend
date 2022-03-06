@@ -10,7 +10,7 @@ console.log(props)
       <div className="thread_screen">
         <Card className="screen_card">
           {props?.getData?.data?.map((tweets) => {
-              console.log(tweets);
+              
             let media_data = {};
             media_data = tweets?.attachments
               ? props?.getData?.includes?.find((media) => {
