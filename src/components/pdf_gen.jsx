@@ -121,16 +121,16 @@ const PDFFile = (props) => {
     img: {
       display: "flex",
       alignSelf: "center",
-      width: "70%",
+      width: "40%",
       textAlign: "center",
     },
   });
 
-// diviting the data into 2 parts
-  const data = props?.getData?.data;
-  const middleindex = Math.ceil(data?.length / 2);
-  const col1 = data.splice(0, middleindex);
-  const col2 = data.splice(-middleindex);
+// diviting the data into 2 parts for column
+  // const data = props?.getData?.data;
+  // const middleindex = Math.ceil(data?.length / 2);
+  // const col1 = data.splice(0, middleindex);
+  // const col2 = data.splice(-middleindex);
   
 
 //render the media part into pdf
@@ -176,7 +176,7 @@ const PDFFile = (props) => {
             <Line style={styles.line} />
           </Svg>
         </View>
-
+{/* 
         <View style={styles.content}>
           <View style={styles.context}>
             {col1?.map((tweets) => {
@@ -231,10 +231,10 @@ const PDFFile = (props) => {
           </View>
      
          
-        </View>
+        </View> */}
      {/* non column */}
-        {/* <div>
-          {props?.getData?.data?.map((tweets) => {
+        <View>
+        {props?.getData?.data?.map((tweets) => {
             let media_data = {};
             media_data = tweets?.attachments
               ? props?.getData?.includes?.find((media) => {
@@ -245,27 +245,20 @@ const PDFFile = (props) => {
               : {};
             return (
               <div key={tweets.id}>
-                <Text>{tweets.text}</Text>
-                {Object.keys(media_data).length >= 0 &&
-                media_data.type !== "photo" ? (
-                  ""
-                ) : (
-                  <View>
-                    <Image style={styles.image} source={media_data?.url} />
+                <Text style={styles.text}>
+                    {tweets.text.replace(/\n/g, "")}
+                  </Text>
+                <View>
+                        { media(media_data)}
                   </View>
-                )}
               </div>
             );
           })}
-
-          <Text
-            style={styles.pageNumber}
-            render={({ pageNumber, totalPages }) =>
-              `${pageNumber} / ${totalPages}`
-            }
-          />
-        </div> */}
-        <View>
+        </View>
+         
+          {/* image at the end */}
+          
+        {/* <View>
           {
              props?.getData?.includes?.map((media)=>{
                if(media.type == "photo"){
@@ -274,7 +267,7 @@ const PDFFile = (props) => {
              
              })
           }
-        </View>
+        </View> */}
      
         <Text
           style={styles.bottom_text}
